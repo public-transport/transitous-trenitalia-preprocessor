@@ -1,0 +1,29 @@
+# SPDX-FileCopyrightText: 2026 Volker Krause <vkrause@kde.org>
+# SPDX-License-Identifier: CC0-1.0
+
+name: Preprocess Trenitalia NeTEx feed for consumption by Transitous
+
+on:
+  schedule:
+    - cron: 0 23 * * *
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - run: preprocess.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./out
+          retention-days: 3
