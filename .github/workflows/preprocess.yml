@@ -34,10 +34,9 @@ jobs:
       - run: ./preprocess.sh
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
-          retention-days: 3
 
   deploy:
     environment:
