@@ -21,7 +21,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - run: preprocess.sh
+      - run: ./preprocess.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
