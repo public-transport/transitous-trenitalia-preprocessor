@@ -6,6 +6,7 @@ name: Preprocess Trenitalia NeTEx feed for consumption by Transitous
 on:
   schedule:
     - cron: 0 23 * * *
+  workflow_dispatch:
 
 defaults:
   run:
